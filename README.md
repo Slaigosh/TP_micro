@@ -1,5 +1,5 @@
 # TP_micro
-
+# 1 Saisie du schéma
 ## 1.2 Le microcontrolleur sous KiCad
 ### Q13
 PB9 est relié à la masse car c'est le pin boot0. 
@@ -17,5 +17,25 @@ Les données sont dans la page 3 de la datasheet, dans Recommended Operating Con
 ### Q5
 Les données sont dans la page 6 de la datasheet, dans AC Characteristics.
 
+### Q6
+La broche CS sert d'enable dans la communication SPI.
 
+### Q7
+C'est le pin de synchronisation du DAC.
+
+### Q8
+Il n'y a pas de MISO parce que le DAC ne communique pas au master
+
+### Q10
+C'est dans la datasheet du STLINKV3, page 19.
+
+## 1.4 Affectation des empreintes
+### Q3
+0805, 009 et 1206 sont des tailles d'empreintes pour des composants passifs.
+Par exemple, 0805 veut dire 8mm de longueur sur 5mm de largeur.
+
+### Q4
+LQFP, SOT-223 et SOIC sont des formes de boiter avec leur empreinte qui correspond.
+
+# 2 Routage du circuit
 
