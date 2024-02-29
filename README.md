@@ -39,3 +39,13 @@ LQFP, SOT-223 et SOIC sont des formes de boiter avec leur empreinte qui correspo
 
 # 2 Routage du circuit
 
+# 3 Ecriture du firmware
+
+## 3.1 Affectation des empreintes
+### Q4
+__STATIC_INLINE se met avant une fonction pour indiquer au compilateur de remplacer les appels de la fonction par le contenu de la fonction ( c'est comme une focntion macro).
+
+### Q5
+Si c'est une fonction INLINE dans un Header, elle est copié dans la source.
+
+
