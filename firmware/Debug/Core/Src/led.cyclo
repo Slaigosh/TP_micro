@@ -1,5 +1,7 @@
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_tim.h:901:22:LL_TIM_EnableCounter	1
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_tim.h:1281:22:LL_TIM_CC_EnableChannel	1
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_tim.h:1678:22:LL_TIM_OC_SetCompareCH1	1
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_tim.h:2799:22:LL_TIM_EnableIT_UPDATE	1
 ../Core/Src/led.c:18:6:LedStart	1
-../Core/Src/led.c:24:6:LedSetValue	1
-../Core/Src/led.c:30:6:LedPulse	3
+../Core/Src/led.c:28:6:LedSetValue	1
+../Core/Src/led.c:34:6:LedPulse	3

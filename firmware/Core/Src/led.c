@@ -18,6 +18,10 @@ static Led_info info = {.current_value = 0, .increment_val = 1};
 void LedStart(void)
 {
 	LL_TIM_EnableCounter(TIM2);
+	LL_TIM_CC_EnableChannel(TIM2,LL_TIM_CHANNEL_CH1);
+	LL_TIM_EnableCounter(TIM21);
+	LL_TIM_EnableIT_UPDATE(TIM21);
+
 }
 
 // value entre 0 et 255

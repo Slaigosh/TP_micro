@@ -27,6 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "led.h"
+#include "Serial.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -74,7 +75,11 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
+  LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
+
+  /* SysTick_IRQn interrupt configuration */
+  NVIC_SetPriority(SysTick_IRQn, 3);
 
   /* USER CODE BEGIN Init */
 
@@ -93,6 +98,7 @@ int main(void)
   MX_ADC_Init();
   MX_SPI1_Init();
   MX_TIM2_Init();
+  MX_TIM21_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -100,11 +106,13 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   LedStart();
+  LL_USART_EnableIT_TXE(USART2);
+  LL_USART_EnableIT_RXNE(USART2);
   while (1)
   {
-	  LedPulse();
-	  LL_mDelay(1);
-	  /* USER CODE END WHILE */
+	  char ch = SerialReceiveChar();
+	  SerialTransmit(&ch, 1);
+    /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
@@ -143,13 +151,10 @@ void SystemClock_Config(void)
   {
 
   }
-  LL_SetSystemCoreClock(16000000);
 
-   /* Update the time base */
-  if (HAL_InitTick (TICK_INT_PRIORITY) != HAL_OK)
-  {
-    Error_Handler();
-  }
+  LL_Init1msTick(16000000);
+
+  LL_SetSystemCoreClock(16000000);
   LL_RCC_SetUSARTClockSource(LL_RCC_USART2_CLKSOURCE_PCLK1);
 }
 
