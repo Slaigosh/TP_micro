@@ -48,4 +48,28 @@ __STATIC_INLINE se met avant une fonction pour indiquer au compilateur de rempla
 ### Q5
 Si c'est une fonction INLINE dans un Header, elle est copié dans la source.
 
+## 3.2 LED simple
+### Q2
+On a prit 64 car "16MHz/64=250KHz". Du coup avec une période de 255 pour le compteur du timer, on obtient environ 1KHz de période de PWR.
+
+## 3.3 LED simple
+### Q3
+Pour PSC on met 64 et pour ARR 250, ce qui nous ramène à 1KHz.
+
+### Q6
+La routine d'ISR se situe dans "stm32l0xx_it.c"
+
+### Q7
+Il manque la désactivation du flag d'interruption.
+
+### Q8
+Ca va lancer l'interruption en boucle.
+
+### Q9
+Dans la routine d'interrution, il faut écrire le flag.
+
+## 3.4 UART, un simple echo
+### Q5
+Il faut rajouter un & dans la ligne SerialTransmit(&ch,1);
+Car il faut passer un pointeur sur le char.
 
